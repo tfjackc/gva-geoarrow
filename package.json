@@ -17,6 +17,7 @@
     "@nextui-org/react": "^2.2.9",
     "@types/react-map-gl": "^6.1.6",
     "apache-arrow": "^15.0.0",
+    "aws-sdk": "^2.1569.0",
     "deck.gl": "^8.9.34",
     "framer-motion": "^11.0.8",
     "mapbox-gl": "^3.1.2",
