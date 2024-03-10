@@ -9,8 +9,17 @@ from shapely import wkb
 from lonboard._geoarrow.geopandas_interop import geopandas_to_geoarrow
 from lonboard.colormap import apply_continuous_cmap
 from palettable.colorbrewer.sequential import YlOrRd_9
-#for i in range(5,12,1):
-parquet_file = f"partitioned_data\MONTH=2020-12\\12.parquet"
+import geopandas as gpd
+from sqlalchemy import create_engine
+
+# convert postgis table to geodataframe
+engine = create_engine("postgresql://USER:PASSWROD@HOST:PORT/DATABASE")
+sql = "SELECT * FROM movement_wbounds"
+gdf = gpd.read_postgis(sql, engine, geom_col='GEOMETRY')
+gdf.to_parquet("movement_wbounds.parquet")
+
+# read parqet
+parquet_file = "movement_wbounds.parquet"
 df = pd.read_parquet(parquet_file)
 
 activity_index = df['ACTIVITY_INDEX_TOTAL']
