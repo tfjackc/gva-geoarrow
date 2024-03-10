@@ -7,6 +7,7 @@ import { MapView } from '@deck.gl/core';
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map from 'react-map-gl';
 import { Slider } from "@nextui-org/react";
+import GetData from "./GetData";
 
 const INITIAL_VIEW_STATE = {
     longitude: -121.3153,
@@ -28,7 +29,7 @@ export default function GeoArrow() {
     useEffect(() => {
         const fetchData = async () => {
             const start = new Date();
-            const GEOARROW_POINT_DATA = `http://127.0.0.1:8082/movement_wbounds_${month}.feather`;
+            const GEOARROW_POINT_DATA = `http://127.0.0.1:8080/movement_wbounds_${month}.feather`;
             const response = await fetch(GEOARROW_POINT_DATA);
             const buffer = await response.arrayBuffer();
             const table = arrow.tableFromIPC(buffer);
@@ -64,7 +65,8 @@ export default function GeoArrow() {
                 Month: {month} <br />
                 Year: 2020 <br />
                 Time to Load: {Time}ms <br />
-                Rows Returned: {RowCount}
+                Rows Returned: {RowCount} <br />
+                <GetData />
             </div>
             <Slider
                 aria-label="Month"

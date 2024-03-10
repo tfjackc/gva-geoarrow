@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apache-arrow/esnext-cjs": "^15.0.1",
     "@aws-sdk/client-athena": "^3.523.0",
     "@aws-sdk/client-s3": "^3.521.0",
     "@deck.gl/core": "^8.9.34",

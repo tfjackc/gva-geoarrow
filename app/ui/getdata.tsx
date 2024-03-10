@@ -1,11 +1,21 @@
 "use client";
 import {getDataFromS3} from "@/app/lib/data";
+
 export default function GetData() {
 
     async function buttonClick() {
         console.log("Get Data...")
+        const start = new Date().getTime()
         const data = await getDataFromS3()
-        console.log(data)
+        const end = new Date().getTime()
+        if (data.success) {
+            console.log("Data fetched successfully")
+            // Assuming 'data' returned is an object with 'data' property being the actual content.
+           // console.table(data.data);
+        } else {
+            console.error("Error fetching data from S3:", data.error)
+        }
+        console.log(`Data fetched in ${end - start}ms`)
     }
     return (
         <main>
