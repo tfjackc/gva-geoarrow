@@ -1,7 +1,5 @@
 # GeoArrow Human Mobility Visualization in Deck.gl
 
-## Performance
-
 ### Leveraging the GeoArrow data format, we can visualize ~500,000 points in roughly ~150-250ms.
 
 ![Application Screenhot](public/app_screenshot.png)
