@@ -2,6 +2,8 @@
 
 ### Leveraging the GeoArrow data format, we can visualize ~500,000 points in roughly ~150-250ms.
 
+#### Attribution for code and inspiration: https://github.com/geoarrow/deck.gl-layers
+
 ![Application Screenhot](public/app_screenshot.png)
 
 ## Data Formats
